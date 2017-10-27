@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login and registration</title>
+</head>
+<body>
+    <h1>Lookit some Books</h1> 
+    <a href="/books/add">add a new book with a review</a><br>
+    <a href="/logout">logout</a><br>
+    {%for i in stuff%}
+    
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p>BOOK</p>
+        <a href="/books/{{i.book.id}}">{{i.book.title}}</a>
+        <p>by {{i.book.author.name}}</p>
+        <p>USER</p>
+        <a href="/users/{{i.user.id}}">{{i.user}}</a>
+        <p>RATING</p>
+        <p>{{i.rating}}</p>
+        <p>CONTENT</p>
+        <p>{{i.content}}</p>
+    {%endfor%}
+   
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li style="color:red" {%if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+</body>
+</html>
